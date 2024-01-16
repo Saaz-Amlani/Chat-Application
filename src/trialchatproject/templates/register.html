@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h5 {
+            color: #333;
+        }
+
+        button {
+            background-color: #008CBA;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00506b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sign up below</h1>
+
+    {% for message in messages %}
+        <h5>{{ message }}</h5>
+    {% endfor %}
+
+    <form method="POST" action="register">
+        {% csrf_token %}
+        <p>Username:</p>
+        <input type="text" name="username" required />
+
+        <p>Email:</p>
+        <input type="email" name="email" required />
+
+        <p>Password:</p>
+        <input type="password" name="password" required />
+
+        <p>Repeat Password:</p>
+        <input type="password" name="password2" required /><br>
+
+        <input type="submit" />
+    </form>
+
+    <a href="login">
+        <button type="button">Login</button>
+    </a>
+
+</body>
+</html>
